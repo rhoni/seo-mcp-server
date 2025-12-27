@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seo-mcp-server"
+version = "0.1.0"
+description = "SEO MCP Server - stdio client for seomcp backend"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "rhoni"}
+]
+keywords = ["mcp", "seo", "article-generation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.18.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+seo-mcp-server = "seo_mcp_server.client:main_sync"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "mypy>=1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seo_mcp_server"]
