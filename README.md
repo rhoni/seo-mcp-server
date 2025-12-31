@@ -36,7 +36,7 @@ uvx seo-mcp-server
 - generate_article(outline, facts, details)
 - embed_links(article, research)
 
-## Firebase Dashboard (app.seomcp.run)
+## Firebase Dashboard (console.seomcp.run)
 - Google Sign-In
 - Generate/list/delete API keys
 - Functions: generate_api_key, list_api_keys, delete_api_key
