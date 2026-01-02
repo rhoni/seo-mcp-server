@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "seo-mcp-server"
 version = "0.1.0"
-description = "SEO MCP Server - stdio client for seomcp backend"
+description = "SEO MCP Server"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [

@@ -1,6 +1,6 @@
 # seo-mcp-server
 
-Public stdio client for the private `seomcp-backend`. Exposes SEO article tools via MCP.
+Official MCP server for SEOMCP (https://seomcp.run). Specialized tools for SEO optimization and preparation (including GEO, AEO) of sites and content. Connects your AI agents to professional SEO analytics and data analysis tools.
 
 ## Install
 
@@ -10,7 +10,13 @@ pip install seo-mcp-server
 uvx seo-mcp-server
 ```
 
-## VS Code mcp.json
+## VS Code Configuration
+
+To configure the server globally, edit the `mcp.json` file:
+
+- **Linux**: `~/.config/Code/User/mcp.json`
+- **MacOS**: `~/Library/Application Support/Code/User/mcp.json`
+- **Windows**: `%APPDATA%\Code\User\mcp.json`
 
 ```json
 {
@@ -20,11 +26,35 @@ uvx seo-mcp-server
 			"command": "uvx",
 			"args": ["seo-mcp-server"],
 			"env": {
-				"SEOMCP_API_KEY": "sk_...",
-					"SEOMCP_BACKEND_URL": "https://api.seomcp.run"
+				"SEOMCP_API_KEY": "seomcp-...",
+				"SEOMCP_API_URL": "https://api.seomcp.run"
 			}
 		}
 	}
+}
+```
+
+You can also create a project-specific config in `.vscode/mcp.json` with the same content.
+
+## Claude Desktop config
+
+On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "seo-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "seo-mcp-server"
+      ],
+      "env": {
+        "SEOMCP_API_KEY": "seomcp-...",
+        "SEOMCP_API_URL": "https://api.seomcp.run"
+      }
+    }
+  }
 }
 ```
 
@@ -35,16 +65,12 @@ uvx seo-mcp-server
 - gather_details(outline)
 - generate_article(outline, facts, details)
 - embed_links(article, research)
+- ...
 
-## Firebase Dashboard (console.seomcp.run)
-- Google Sign-In
-- Generate/list/delete API keys
-- Functions: generate_api_key, list_api_keys, delete_api_key
+## Get API Key
 
-## Structure
-```
-src/seo_mcp_server/      # stdio client
-firebase/functions/      # key mgmt APIs
-firebase/public/         # dashboard UI
-pyproject.toml
-```
+To use this MCP server, you need an API key.
+
+1. Go to [console.seomcp.run](https://console.seomcp.run).
+2. Log in and generate a new key.
+3. Use this key as `SEOMCP_API_KEY` in your configuration.
