@@ -1,1 +1,0 @@
-../../seomcp-backend/.github/copilot-instructions.md
